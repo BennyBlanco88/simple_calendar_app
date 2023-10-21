@@ -1,6 +1,9 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Grandiflora One', cursive;
+  font-family: 'Indie Flower', cursive;
   font-size: 16px;
+  background-color: #a1e7f8;
 }
 
 textarea {
@@ -12,9 +15,7 @@ textarea {
   padding: 10px;
 }
 
-.description {
-  white-space: pre-wrap;
-}
+
 
 .time-block {
   border-radius: 15px;

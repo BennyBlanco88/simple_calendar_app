@@ -2,12 +2,9 @@ var today = moment().format("dddd, MMMM Do YYYY ");
 
 var now = moment().format("H A");
 
-// current day
-
 $("#currentDay").text(today);
 
 
-/* planWorkday entries for each hour of the workday */
 var planWorkday = [
     { time: "9 AM", 
         event: "" },
@@ -29,16 +26,13 @@ var planWorkday = [
         event: "" },
   ];
 
-/* Local Storage check */
 var workEvents = JSON.parse(localStorage.getItem("workDay"));
 if (workEvents) {
   planWorkday = workEvents;
 }
 
-/* Current Day */
 $("#currentDay").text(today);
 
-/* Create rows */
 planWorkday.forEach(function(timeBlock, index) {
 	var timeLabel = timeBlock.time;
 	var blockColor = colorRow(timeLabel);
@@ -53,11 +47,11 @@ planWorkday.forEach(function(timeBlock, index) {
 		timeBlock.event +
 		'</textarea><div class="col-sm col-lg-1 input-group-append"><button class="saveBtn btn-block" type="submit"><i class="fas fa-save"></i></button></div></div></div>';
 
-	/* Adding rows to container div */
+	
 	$(".container").append(row);
 });
 
-/* Color rows based on current time */
+
 function colorRow(time) {
 	var planNow = moment(now, "H A");
 	var planEntry = moment(time, "H A");
@@ -70,7 +64,7 @@ function colorRow(time) {
 	}
 }
 
-/* Save Events */
+
 $(".saveBtn").on("click", function() {
 	var blockID = parseInt(
 		$(this)
@@ -85,6 +79,6 @@ $(".saveBtn").on("click", function() {
 	);
 	planWorkday[blockID].event = userEntry;
 
-	/* Set local storage */
+	
 	localStorage.setItem("workDay", JSON.stringify(planWorkday));
 });
